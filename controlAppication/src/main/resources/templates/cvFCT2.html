@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>View Cv User</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+</head>
+<body>
+	<h1>CV Info id</h1>
+	
+	<table>
+    <tr>
+      <td>Id User:</td>
+      <td th:text="${user.id}"></td>
+    </tr>
+    <tr>
+      <td>Name:</td>
+      <td th:text="${cv.cvName}"></td>
+    </tr>
+
+
+
+    <tr>
+      <td>Gender:</td>
+		<td th:text="${cv.sex} == 0 ? 'Nam' : 'Nữ'"></td>
+    </tr>
+    <tr>
+      <td>Address:</td>
+      <td><p th:text="${cv.address}" /></td>
+    </tr>
+    <tr>
+      <td>Img Path:</td>
+      <td th:text="${cv.imgPath}"></td>
+    </tr>
+<tr>
+      <td>About Me:</td>
+      <td th:text="${cv.aboutMe}"></td>
+    </tr>
+<tr>
+      <td>Address:</td>
+      <td th:text="${cv.degree}"></td>
+    </tr>
+	<!-- -->
+	<tr>
+      <td>Education School Name:</td>
+      <td>
+				<table>
+					<tbody>
+						<tr th:each="temp : ${cv.education}">
+							<td th:text="${temp.schoolName}"></td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+			
+    </tr>
+<tr>
+      <td>Study Name:</td>
+      <td>
+				<table>
+					<tbody>
+						<tr th:each="temp : ${cv.fieldOfStudy}">
+							<td th:text="${temp.studyName}"></td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+    </tr>
+<tr>
+      <td>Certificate:</td>
+      <td>
+				<table>
+					<tbody>
+						<tr th:each="temp : ${cv.certificate}">
+              <tr>
+              <td>Certificate Name:</td>
+							<td th:text="${temp.certificatName}"></td>
+            </tr>
+            <tr>
+              <td>Authority:</td>
+							<td th:text="${temp.authority}"></td>
+            </tr>
+            <tr>
+              <td>licenseNumber:</td>
+							<td th:text="${temp.licenseNumber}"></td>
+            </tr>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+			
+    </tr>
+<tr>
+      <td>Technical Skill Name:</td>
+      <td>
+				<table>
+					<tbody>
+						<tr th:each="temp : ${cv.technical}">
+							<td th:text="${temp.skillName}"></td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+    </tr>
+
+	
+<tr>
+      <td>IssuseDate:</td>
+      <td th:text="${cv.issuseDate}"></td>
+    </tr>
+<tr>
+      <td>Expiration Date:</td>
+      <td th:text="${cv.expirationDate}"></td>
+    </tr>
+<tr>
+      <td>Experence Year:</td>
+      <td th:text="${cv.experenceYear}"></td>
+    </tr>
+<tr>
+      <td>Technica lLevel:</td>
+      <td th:text="${cv.technicalLevel}"></td>
+    </tr>
+  </table>
+	
+		<tr th:each="cv : ${cvlist}">
+
+			<td>
+				<button type="button">Add New</button>
+				<button type="button">Delete</button>
+				<button type="button">Edit</button>
+			</td>
+			</form>
+		</tr>
+	</table>
+
+
+	<ul>
+
+	</ul>
+</body>
+</html>
