@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>CV FCT</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+</head>
+<body>
+	<h1>CV FCT List</h1>
+	<table border="1">
+		<tr>
+			<th>Name</th>
+			<th>Sex</th>
+			<th>Phone</th>
+
+			<th>Address</th>
+			<th>Image</th>
+			<th>About me</th>
+
+			<th>Degree</th>
+
+			<th>School Name</th>
+			<th>FieldOfStudy</th>
+			<th>Skill</th>
+			<th>Certificate name</th>
+
+			<th>IssuseDate</th>
+			<th>Expiration Date</th>
+
+			<th>Job Title</th>
+			<th>Experence</th>
+			<th>Level</th>
+			<th>Apply Position</th>
+			<th>UserId</th>
+		</tr>
+		<tr th:each="cv : ${cvlist}">
+			<td th:text="${cv.cvName}"></td>
+			<td th:text="${cv.sex} == 0 ? 'Nam' : 'Nữ'"></td>
+			<td th:text="${cv.phoneNum}"></td>
+
+			<td th:text="${cv.address}"></td>
+			<td th:text="${cv.imgPath}"></td>
+			<td th:text="${cv.aboutMe}"></td>
+
+			<td th:text="${cv.degree}"></td>
+
+			<td>
+				<table>
+					<tbody>
+						<tr th:each="temp : ${cv.education}">
+							<td th:text="${temp.schoolName}"></td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+			<td>
+				<table>
+					<tbody>
+						<tr th:each="temp : ${cv.fieldOfStudy}">
+							<td th:text="${temp.studyName}"></td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+			<td>
+				<table>
+					<tbody>
+						<tr th:each="temp : ${cv.certificate}">
+							<td th:text="${temp.certificatName}"></td>
+							<td th:text="${temp.authority}"></td>
+							<td th:text="${temp.licenseNumber}"></td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+			<td>
+				<table>
+					<tbody>
+						<tr th:each="temp : ${cv.technical}">
+							<td th:text="${temp.skillName}"></td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+
+			<td th:text="${cv.issuseDate}"></td>
+			<td th:text="${cv.expirationDate}"></td>
+
+			<td>Job Title</td>
+			<td th:text="${cv.experenceYear}"></td>
+			<td th:text="${cv.technicalLevel}"></td>
+			<td>Apply Position</td>
+			<td>UserId</td>
+
+
+
+			<td>
+				<button type="button">Update</button>
+				<button type="button">Delete</button>
+				<button type="button">Edit</button>
+			</td>
+			</form>
+		</tr>
+	</table>
+
+
+	<ul>
+
+	</ul>
+</body>
+</html>

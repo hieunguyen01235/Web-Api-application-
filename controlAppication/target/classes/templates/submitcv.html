@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Spring MVC + Thymeleaf</title>
+</head>
+<body>
+	<h2>Add Cv Information</h2>
+	<form th:action="@{/api/cv/submit}" th:object="${cvsubmit}"
+		method="post">
+		<table>
+			<tr>
+				<td>Name</td>
+				<td><input th:field="*{cvname}" /></td>
+			<tr>
+				<td>Phone Number</td>
+				<td><input th:field="*{phoneNum}" /></td>
+				<td>Gender</td>
+				<td><input type="radio" th:field="*{gender}" th:value="Nam" />
+					<label th:text="Nam" /> <input type="radio" th:field="*{gender}"
+					th:value="Nu" /> <label th:text="Nữ" /></td>
+			</tr>
+			<tr>
+				<td>Addess</td>
+				<td><textarea th:field="*{address}" /></td>
+				<td>About</td>
+				<td><textarea th:field="*{aboutMe}" /></td>
+			</tr>
+
+			<tr>
+				<td>Degree</td>
+				<td><input th:field="*{degree}" /></td>
+				<td>Image </td>
+				<td><input th:field= "*{img_path}" type="file" id="myFile" name="filename"></td>
+			</tr>
+
+			<tr>
+				<td>Studyname</td>
+				<td><input th:field="*{studyname}" /></td>
+			</tr>
+			<tr>
+				<td>Schoolname</td>
+				<td><input th:field="*{schoolname}" /></td>
+			</tr>
+			<tr>
+				<td>Certificat Name</td>
+				<td><input th:field="*{certificatName}" /></td>
+				<td>authority</td>
+				<td><input th:field="*{authority}" /></td>
+				<td>licenseNumber</td>
+				<td><input th:field="*{licenseNumber}" /></td>
+			</tr>
+
+			<tr>
+				<td>Skill</td>
+				<td><input th:field="*{skillname}" list="browsers"
+					name="browser"> <datalist id="browsers">
+						<option th:each="ps : ${listskill}" th:value="${ps}"
+							th:text="${ps}">
+					</datalist></td>
+			</tr>
+
+			<tr>
+			<tr>
+				<td>Technical Level</td>
+				<td><input th:field="*{technicalLevel}" /></td>
+				<td>YearStart</td>
+				<td><input th:field="*{yearStart}" /></td>
+				<td>YearEnd</td>
+				<td><input th:field="*{yearEnd}" /></td>
+			</tr>
+
+
+			<tr>
+				<td>Complete Degree</td>
+				<td><input th:field="*{completeDegree}" /></td>
+				<td>IssuseDate</td>
+				<td><input th:field="*{issuseDate}" /></td>
+			</tr>
+
+			<tr>
+				<td>Experence_month</td>
+				<td><input th:field="*{experence_month}" /></td>
+				<td>ExperenceYear</td>
+				<td><input th:field="*{experenceYear}" /></td>
+			</tr>
+
+
+
+			<td colspan="2"><input type="submit" value="Submit" /></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
